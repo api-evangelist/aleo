@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.aleo.org/ + live probe of api.explorer.provable.com
+summary:
+  types: [none]
+  note: >-
+    The public Aleo node REST API (api.explorer.provable.com) is unauthenticated.
+    Read endpoints (chain state, blocks, transactions, programs, mappings,
+    committee) require no API key, token, or credential. Write access is not
+    granted via HTTP auth — the POST /transaction/broadcast endpoint accepts a
+    transaction that is already cryptographically signed with the sender's Aleo
+    private key (the on-chain authorization model), so authorization is enforced
+    by zk-proof and signature validation at the protocol layer, not by API
+    credentials. Aleo accounts are keypairs (private key / view key / address)
+    generated with the Provable SDK or the Leo CLI account commands.
+schemes: []
+account_model:
+  identity: Aleo account keypair (APrivateKey / AViewKey / aleo1... address)
+  signing: Transactions are authorized and signed with the account private key via snarkVM / the Provable SDK before broadcast.
+  docs: https://docs.aleo.org/build/leo/documentation/cli/cli_account/
