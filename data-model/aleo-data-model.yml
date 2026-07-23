@@ -1,0 +1,49 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/aleo-node-api-openapi.yml + https://docs.aleo.org/
+entities:
+- name: Block
+  id_format: ab1... (block hash) | integer height
+  description: A ledger block containing a header and confirmed transactions.
+- name: Transaction
+  id_format: at1...
+  description: An execution, deployment, or fee transaction. Carries zk proofs.
+- name: Transition
+  id_format: au1...
+  description: A single state transition within a transaction's execution.
+- name: Program
+  id_format: <name>.aleo
+  description: A deployed Aleo program (smart contract) written in Leo/Aleo instructions.
+- name: Mapping
+  id_format: <program>/<mappingName>
+  description: A program's on-chain key/value store (public program state).
+- name: Account
+  id_format: aleo1... (address)
+  description: An account keypair (private key / view key / address); not exposed by the read API.
+- name: Committee
+  description: The active validator set and their staked balances.
+relationships:
+- from: Block
+  to: Transaction
+  type: has_many
+  via: transactions
+- from: Transaction
+  to: Transition
+  type: has_many
+  via: execution.transitions
+- from: Transaction
+  to: Block
+  type: belongs_to
+  via: getBlock/findBlockHashByTransaction
+- from: Program
+  to: Mapping
+  type: has_many
+  via: getProgramMappings
+- from: Mapping
+  to: Account
+  type: references
+  via: key (e.g. credits.aleo/account keyed by aleo1 address)
+- from: Committee
+  to: Account
+  type: has_many
+  via: validator addresses

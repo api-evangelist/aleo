@@ -1,0 +1,19 @@
+generated: '2026-07-17'
+method: generated
+source: openapi/aleo-node-api-openapi.yml
+skills:
+- file: aleo-read-chain-state.md
+  name: Read Aleo chain state
+  description: Query latest height/hash, blocks, and transactions from the Aleo node REST API.
+  api: openapi/aleo-node-api-openapi.yml
+  operations: [getLatestHeight, getLatestHash, getBlock, getBlockTransactions, getTransaction, findBlockHashByTransaction]
+- file: aleo-read-program-state.md
+  name: Read Aleo program and mapping state
+  description: Fetch a deployed program's source and read its public on-chain mapping values.
+  api: openapi/aleo-node-api-openapi.yml
+  operations: [getProgram, getProgramMappings, getMappingValue]
+- file: aleo-broadcast-transaction.md
+  name: Broadcast a signed Aleo transaction
+  description: Submit a snarkVM/SDK-signed transaction to the network and confirm inclusion.
+  api: openapi/aleo-node-api-openapi.yml
+  operations: [broadcastTransaction, findBlockHashByTransaction, getTransaction]

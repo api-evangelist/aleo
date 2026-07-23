@@ -1,0 +1,22 @@
+{
+  "provider": "aleo",
+  "sources": [
+    "aleo-blocks-api-openapi.yml",
+    "aleo-chain-api-openapi.yml",
+    "aleo-network-api-openapi.yml",
+    "aleo-programs-api-openapi.yml",
+    "aleo-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "aleo-blocks-api-openapi.yml",
+    "aleo-chain-api-openapi.yml",
+    "aleo-network-api-openapi.yml",
+    "aleo-programs-api-openapi.yml",
+    "aleo-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,20 +1,167 @@
 aid: aleo
 name: Aleo
-description: Aleo is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Aleo is a privacy-first, zero-knowledge Layer-1 blockchain for building fully
+  private applications. Developers write smart contracts in Leo — a purpose-built
+  language for zero-knowledge applications — compile them with snarkVM, and run
+  them on the decentralized snarkOS network, keeping inputs, outputs, and program
+  state private using zk-SNARK proofs while still being publicly verifiable. The
+  ecosystem, developed by Provable (ProvableHQ), includes the Leo language and CLI,
+  the snarkVM zkVM and snarkOS operating system, JavaScript/TypeScript and Python
+  SDKs, a WASM runtime for in-browser proving, the Aleo Explorer, and a public node
+  REST API for reading on-chain state and broadcasting transactions across mainnet
+  and testnet. Aleo is a portfolio company of a16z.
 url: https://raw.githubusercontent.com/api-evangelist/aleo/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://aleo.org/social.webp
 x-type: company
 x-source: a16z-portfolio
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-apis: []
+- Blockchain
+- Zero-Knowledge
+- Cryptography
+- Privacy
+- Web3
+- Developer Tools
+- Cryptocurrency
+- Smart Contracts
+apis:
+- aid: aleo:aleo-blocks-api
+  name: Aleo Blocks API
+  description: Block and transaction queries
+  humanURL: https://docs.aleo.org/
+  baseURL: https://api.explorer.provable.com/v1
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/aleo-blocks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aleo.org/
+- aid: aleo:aleo-chain-api
+  name: Aleo Chain API
+  description: Latest chain state
+  humanURL: https://docs.aleo.org/
+  baseURL: https://api.explorer.provable.com/v1
+  tags:
+  - Chain
+  properties:
+  - type: OpenAPI
+    url: openapi/aleo-chain-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aleo.org/
+- aid: aleo:aleo-network-api
+  name: Aleo Network API
+  description: Committee and consensus state
+  humanURL: https://docs.aleo.org/
+  baseURL: https://api.explorer.provable.com/v1
+  tags:
+  - Network
+  properties:
+  - type: OpenAPI
+    url: openapi/aleo-network-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aleo.org/
+- aid: aleo:aleo-programs-api
+  name: Aleo Programs API
+  description: Deployed program and mapping queries
+  humanURL: https://docs.aleo.org/
+  baseURL: https://api.explorer.provable.com/v1
+  tags:
+  - Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/aleo-programs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aleo.org/
+- aid: aleo:aleo-transactions-api
+  name: Aleo Transactions API
+  description: Transaction submission
+  humanURL: https://docs.aleo.org/
+  baseURL: https://api.explorer.provable.com/v1
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/aleo-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aleo.org/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/aleo-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/aleo-agentic-access.yml
+- type: DeveloperPortal
+  url: https://docs.aleo.org/
+- type: Documentation
+  url: https://docs.aleo.org/
+- type: APIReference
+  url: https://docs.aleo.org/build/sdk/overview/
+- type: GettingStarted
+  url: https://docs.aleo.org/build/getting-started/
+- type: GitHubOrganization
+  url: https://github.com/ProvableHQ
+- type: Blog
+  url: https://provable.com/blog
+- type: Support
+  url: https://discord.gg/aleo
+- type: Sandbox
+  url: sandbox/aleo-sandbox.yml
+- type: Playground
+  url: https://play.leo-lang.org/
+- type: PrivacyPolicy
+  url: https://provable.com/privacy
+- type: StatusPage
+  url: https://status.aleo.org/
+- type: X
+  url: https://x.com/provablehq
+- type: Packages
+  url: packages/aleo-packages.yml
+- type: SDKs
+  url: packages/aleo-packages.yml
+- type: CLI
+  url: cli/aleo-cli.yml
+- type: MCPServer
+  url: mcp/aleo-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/aleo-well-known.yml
+- type: LLMsTxt
+  url: llms/aleo-llms.txt
+- type: Overlay
+  url: overlays/aleo-node-api-overlay.yaml
+- type: Conformance
+  url: conformance/aleo-conformance.yml
+- type: ErrorCatalog
+  url: errors/aleo-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/aleo-lifecycle.yml
+- type: Authentication
+  url: authentication/aleo-authentication.yml
+- type: Conventions
+  url: conventions/aleo-conventions.yml
+- type: ChangeLog
+  url: changelog/aleo-changelog.yml
+- type: DataModel
+  url: data-model/aleo-data-model.yml

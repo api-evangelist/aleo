@@ -1,0 +1,27 @@
+generated: '2026-07-17'
+method: searched
+source: live probe of /.well-known/ on Aleo hosts
+hosts:
+- host: https://api.explorer.provable.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 000
+    note: connection refused / not served on API gateway
+  - path: /.well-known/openid-configuration
+    status: 000
+- host: https://provable.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://aleo.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    note: host is a catch-all SPA returning 200 HTML, no real security.txt served
+documents: []
+notes: >-
+  No /.well-known/ discovery documents are published on the Aleo/Provable hosts.
+  The public node API is unauthenticated (no OAuth/OIDC), so no
+  openid-configuration or oauth-authorization-server is expected.

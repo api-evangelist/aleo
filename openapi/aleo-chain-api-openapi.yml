@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Aleo Node REST Blocks Chain API
+  description: The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.
+  version: v1
+  contact:
+    name: Provable / Aleo Developer Community
+    url: https://docs.aleo.org/
+  license:
+    name: Apache-2.0
+    url: https://github.com/ProvableHQ/snarkOS/blob/staging/LICENSE.md
+servers:
+- url: https://api.explorer.provable.com/v1
+  description: Provable public gateway (mainnet + testnet)
+tags:
+- name: Chain
+  description: Latest chain state
+paths:
+  /{network}/latest/height:
+    get:
+      operationId: getLatestHeight
+      tags:
+      - Chain
+      summary: Get latest block height
+      description: Returns the height of the latest block on the network.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block height.
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 20285447
+  /{network}/latest/hash:
+    get:
+      operationId: getLatestHash
+      tags:
+      - Chain
+      summary: Get latest block hash
+      description: Returns the block hash of the latest block on the network.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block hash.
+          content:
+            application/json:
+              schema:
+                type: string
+  /{network}/latest/stateRoot:
+    get:
+      operationId: getLatestStateRoot
+      tags:
+      - Chain
+      summary: Get latest state root
+      description: Returns the latest state root of the ledger.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest state root.
+          content:
+            application/json:
+              schema:
+                type: string
+  /{network}/latest/block:
+    get:
+      operationId: getLatestBlock
+      tags:
+      - Chain
+      summary: Get latest block
+      description: Returns the full latest block, including its transactions.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+components:
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum:
+        - mainnet
+        - testnet
+        default: mainnet
+  schemas:
+    Transaction:
+      type: object
+      description: An Aleo transaction (execution or deployment).
+      properties:
+        type:
+          type: string
+          enum:
+          - execute
+          - deploy
+          - fee
+        id:
+          type: string
+        execution:
+          type: object
+        deployment:
+          type: object
+    Block:
+      type: object
+      description: An Aleo block.
+      properties:
+        block_hash:
+          type: string
+        previous_hash:
+          type: string
+        header:
+          type: object
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+externalDocs:
+  description: Aleo developer documentation
+  url: https://docs.aleo.org/

@@ -1,0 +1,35 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/aleo-node-api-openapi.yml + https://docs.aleo.org/
+authentication:
+  style: none (public read API); transactions are protocol-signed with an Aleo private key
+  ref: authentication/aleo-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    Read endpoints are naturally idempotent (safe GETs). Transaction broadcast is
+    idempotent at the ledger layer — a transaction has a deterministic ID and
+    cannot be double-included — but there is no HTTP Idempotency-Key header.
+pagination:
+  style: none-by-range
+  note: >-
+    No cursor/offset pagination on the public gateway. Block ranges are walked by
+    height (block/{height}); the underlying node also exposes a blocks?start&end
+    range query on some deployments.
+versioning:
+  style: uri-path
+  current: v1
+  network_segment: '{mainnet|testnet}'
+  ref: lifecycle/aleo-lifecycle.yml
+error_envelope:
+  shape: http-status + plain text/json message (not RFC 9457)
+  ref: errors/aleo-problem-types.yml
+rate_limiting:
+  signaling: none-documented
+  note: Public gateway (Cloudflare-fronted); no documented rate-limit headers.
+content_type: application/json
+data_encoding:
+  note: >-
+    On-chain values use Aleo's typed literal encoding (e.g. 1000000u64, aleo1...
+    addresses, at1... transaction IDs, ab1... block hashes, field/group/scalar
+    types). Program state is read via program mappings.

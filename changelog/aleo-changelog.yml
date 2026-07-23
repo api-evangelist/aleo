@@ -1,0 +1,46 @@
+generated: '2026-07-17'
+method: searched
+source: https://github.com/ProvableHQ/snarkOS/releases + snarkVM + leo + sdk releases
+scheme: semver (per component; GitHub Releases)
+note: >-
+  Aleo has no single dated HTTP-API changelog; the network and toolchain version
+  via GitHub Releases across the core repos. Recent releases below.
+components:
+- name: snarkOS
+  repo: https://github.com/ProvableHQ/snarkOS/releases
+  current: v4.8.1
+  entries:
+  - version: v4.8.1
+    date: '2026-07-09'
+  - version: v4.8.0
+    date: '2026-06-29'
+  - version: v4.7.5
+    date: '2026-06-23'
+- name: snarkVM
+  repo: https://github.com/ProvableHQ/snarkVM/releases
+  current: v4.0.0
+  entries:
+  - version: v4.0.0
+    date: '2025-08-12'
+  - version: v1.0.0
+    date: '2024-12-03'
+- name: leo
+  repo: https://github.com/ProvableHQ/leo/releases
+  current: leo-lang-v4.3.4
+  entries:
+  - version: leo-lang-v4.3.4
+    date: '2026-07-17'
+  - version: leo-lang-v4.3.3
+    date: '2026-07-13'
+- name: "@provablehq/sdk"
+  repo: https://github.com/ProvableHQ/sdk/releases
+  current: v0.11.3
+  entries:
+  - version: v0.11.3
+    date: '2026-06-29'
+  - version: v0.11.2
+    date: '2026-06-18'
+  - version: v0.11.1
+    date: '2026-06-10'
+  - version: v0.11.0
+    date: '2026-05-27'

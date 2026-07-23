@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.aleo.org/ + live probe of api.explorer.provable.com
+note: >-
+  Aleo provides a public testnet for development, mirroring mainnet. The node REST
+  API exposes both via a network path segment; developers can also run a fully
+  local devnet/devnode with the Leo CLI.
+environments:
+- name: mainnet
+  base_url: https://api.explorer.provable.com/v1/mainnet
+  segment: mainnet
+  verified: true
+- name: testnet
+  base_url: https://api.explorer.provable.com/v1/testnet
+  segment: testnet
+  verified: true
+  note: Free test network; obtain testnet credits from the community faucet (Discord / explorer).
+- name: local-devnet
+  how: leo devnet
+  note: Spin up a local multi-validator development network with the Leo CLI.
+- name: local-devnode
+  how: leo devnode
+  note: Standalone local development node for testing against a fresh ledger.
+test_accounts:
+  note: >-
+    Generate throwaway keypairs with `leo account new` or the Provable SDK. Never
+    hardcodes published private keys; use testnet + a faucet for funded accounts.
+faucet:
+  note: Testnet credits are distributed via the Aleo Discord faucet and explorer; no fixed programmatic faucet endpoint is documented.

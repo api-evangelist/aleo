@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: Aleo Node REST Blocks Network API
+  description: The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.
+  version: v1
+  contact:
+    name: Provable / Aleo Developer Community
+    url: https://docs.aleo.org/
+  license:
+    name: Apache-2.0
+    url: https://github.com/ProvableHQ/snarkOS/blob/staging/LICENSE.md
+servers:
+- url: https://api.explorer.provable.com/v1
+  description: Provable public gateway (mainnet + testnet)
+tags:
+- name: Network
+  description: Committee and consensus state
+paths:
+  /{network}/committee/latest:
+    get:
+      operationId: getLatestCommittee
+      tags:
+      - Network
+      summary: Get the latest validator committee
+      description: Returns the current committee of validators and their stake.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The current committee.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum:
+        - mainnet
+        - testnet
+        default: mainnet
+externalDocs:
+  description: Aleo developer documentation
+  url: https://docs.aleo.org/

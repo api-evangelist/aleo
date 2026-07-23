@@ -1,0 +1,23 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/aleo-node-api-openapi.yml
+format: http-status
+note: >-
+  The Aleo node REST API does not emit RFC 9457 problem+json. Errors surface as
+  HTTP status codes with a plain-text/JSON message body. These entries are derived
+  from the documented/observed response codes of the node API.
+problems:
+- status: 400
+  title: Bad request
+  detail: The request (e.g. a broadcast transaction) was malformed or the transaction failed validation.
+  source_operation: openapi/aleo-node-api-openapi.yml#broadcastTransaction
+- status: 404
+  title: Not found
+  detail: The requested block, transaction, program, or mapping key does not exist.
+  source_operation: openapi/aleo-node-api-openapi.yml#getBlock
+- status: 500
+  title: Internal server error
+  detail: The node encountered an internal error servicing the request.
+- status: 522
+  title: Connection timed out
+  detail: The upstream node/gateway did not respond in time (observed on heavy endpoints such as latest/block).

@@ -1,0 +1,52 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.aleo.org/build/leo/documentation/cli/cli_overview/
+name: leo
+description: >-
+  The Leo CLI — the first-party command-line tool for developing, compiling,
+  testing, executing, and deploying Aleo (Leo) zero-knowledge programs.
+install:
+- method: cargo
+  command: cargo install leo-lang
+- method: source
+  command: git clone https://github.com/ProvableHQ/leo && cd leo && cargo install --path .
+commands:
+- name: new
+  description: Create a new Leo project.
+- name: account
+  description: Create/manage Aleo account keypairs (new account, import).
+- name: build
+  description: Compile the current Leo program to Aleo instructions.
+- name: run
+  description: Run a program function locally (offline execution).
+- name: execute
+  description: Execute a program function, generating a zk proof.
+- name: deploy
+  description: Deploy a compiled program to the network.
+- name: query
+  description: Query on-chain state (blocks, programs, mappings) from a node endpoint.
+- name: test
+  description: Run the program's tests.
+- name: clean
+  description: Remove build artifacts.
+- name: add
+  description: Add an on-chain program as a dependency.
+- name: remove
+  description: Remove a dependency.
+- name: update
+  description: Update the Leo CLI.
+- name: upgrade
+  description: Upgrade a deployed program.
+- name: fmt
+  description: Format Leo source code.
+- name: devnet
+  description: Spin up a local development network.
+- name: devnode
+  description: Run a standalone local development node.
+- name: synthesize
+  description: Synthesize the proving/verifying keys for a program.
+- name: plugins
+  description: Manage Leo CLI plugins.
+- name: abi
+  description: Emit the program ABI.
+docs: https://docs.aleo.org/build/leo/documentation/cli/cli_overview/

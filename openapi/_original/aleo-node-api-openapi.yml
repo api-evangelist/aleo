@@ -1,0 +1,357 @@
+openapi: 3.0.3
+info:
+  title: Aleo Node REST API
+  description: >-
+    The public REST API exposed by Aleo network nodes (snarkOS), served through
+    Provable's public gateway at api.explorer.provable.com. It provides read
+    access to on-chain state — the latest block height/hash/state root, blocks and
+    their transactions, deployed programs and their mappings, and the current
+    validator committee — plus a broadcast endpoint for submitting signed
+    transactions to the network. The API is unauthenticated and read-only for
+    query endpoints. Endpoints were verified live against the mainnet gateway;
+    the route surface follows the snarkOS node REST implementation.
+  version: v1
+  contact:
+    name: Provable / Aleo Developer Community
+    url: https://docs.aleo.org/
+  license:
+    name: Apache-2.0
+    url: https://github.com/ProvableHQ/snarkOS/blob/staging/LICENSE.md
+externalDocs:
+  description: Aleo developer documentation
+  url: https://docs.aleo.org/
+servers:
+  - url: https://api.explorer.provable.com/v1
+    description: Provable public gateway (mainnet + testnet)
+tags:
+  - name: Chain
+    description: Latest chain state
+  - name: Blocks
+    description: Block and transaction queries
+  - name: Programs
+    description: Deployed program and mapping queries
+  - name: Network
+    description: Committee and consensus state
+  - name: Transactions
+    description: Transaction submission
+paths:
+  /{network}/latest/height:
+    get:
+      operationId: getLatestHeight
+      tags: [Chain]
+      summary: Get latest block height
+      description: Returns the height of the latest block on the network.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block height.
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 20285447
+  /{network}/latest/hash:
+    get:
+      operationId: getLatestHash
+      tags: [Chain]
+      summary: Get latest block hash
+      description: Returns the block hash of the latest block on the network.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block hash.
+          content:
+            application/json:
+              schema:
+                type: string
+  /{network}/latest/stateRoot:
+    get:
+      operationId: getLatestStateRoot
+      tags: [Chain]
+      summary: Get latest state root
+      description: Returns the latest state root of the ledger.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest state root.
+          content:
+            application/json:
+              schema:
+                type: string
+  /{network}/latest/block:
+    get:
+      operationId: getLatestBlock
+      tags: [Chain]
+      summary: Get latest block
+      description: Returns the full latest block, including its transactions.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The latest block object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+  /{network}/block/{height}:
+    get:
+      operationId: getBlock
+      tags: [Blocks]
+      summary: Get block by height or hash
+      description: >-
+        Returns the block at the given height (integer) or block hash (ab1...).
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: height
+          in: path
+          required: true
+          description: Block height (integer) or block hash.
+          schema:
+            type: string
+          example: '0'
+      responses:
+        '200':
+          description: The requested block.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+        '404':
+          description: Block not found.
+  /{network}/block/{height}/transactions:
+    get:
+      operationId: getBlockTransactions
+      tags: [Blocks]
+      summary: Get transactions in a block
+      description: Returns the list of transactions confirmed in the given block.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: height
+          in: path
+          required: true
+          description: Block height.
+          schema:
+            type: string
+          example: '0'
+      responses:
+        '200':
+          description: The transactions in the block.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+  /{network}/transaction/{id}:
+    get:
+      operationId: getTransaction
+      tags: [Blocks]
+      summary: Get transaction by ID
+      description: Returns the transaction with the given transaction ID (at1...).
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: id
+          in: path
+          required: true
+          description: Transaction ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: Transaction not found.
+  /{network}/program/{programId}:
+    get:
+      operationId: getProgram
+      tags: [Programs]
+      summary: Get program source
+      description: >-
+        Returns the Aleo instructions (bytecode) for the deployed program with
+        the given program ID, e.g. credits.aleo.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: programId
+          in: path
+          required: true
+          description: Program ID, e.g. credits.aleo.
+          schema:
+            type: string
+          example: credits.aleo
+      responses:
+        '200':
+          description: The program source.
+          content:
+            application/json:
+              schema:
+                type: string
+        '404':
+          description: Program not found.
+  /{network}/program/{programId}/mappings:
+    get:
+      operationId: getProgramMappings
+      tags: [Programs]
+      summary: List a program's mapping names
+      description: Returns the names of the mappings declared by the program.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: programId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: credits.aleo
+      responses:
+        '200':
+          description: The mapping names.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /{network}/program/{programId}/mapping/{mappingName}/{key}:
+    get:
+      operationId: getMappingValue
+      tags: [Programs]
+      summary: Get a mapping value
+      description: >-
+        Returns the value stored under the given key in the named mapping of the
+        program (e.g. the account balance in credits.aleo/account).
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: programId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: credits.aleo
+        - name: mappingName
+          in: path
+          required: true
+          schema:
+            type: string
+          example: account
+        - name: key
+          in: path
+          required: true
+          description: The mapping key (e.g. an Aleo address).
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The mapping value (null if unset).
+          content:
+            application/json:
+              schema:
+                type: string
+                nullable: true
+  /{network}/committee/latest:
+    get:
+      operationId: getLatestCommittee
+      tags: [Network]
+      summary: Get the latest validator committee
+      description: Returns the current committee of validators and their stake.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: The current committee.
+          content:
+            application/json:
+              schema:
+                type: object
+  /{network}/find/blockHash/{transactionId}:
+    get:
+      operationId: findBlockHashByTransaction
+      tags: [Blocks]
+      summary: Find the block hash containing a transaction
+      description: Returns the hash of the block that confirmed the given transaction ID.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The block hash.
+          content:
+            application/json:
+              schema:
+                type: string
+        '404':
+          description: Transaction not found.
+  /{network}/transaction/broadcast:
+    post:
+      operationId: broadcastTransaction
+      tags: [Transactions]
+      summary: Broadcast a transaction
+      description: >-
+        Submits a signed, serialized transaction to the network for inclusion.
+        The request body is the JSON transaction object produced by snarkVM /
+        the Provable SDK.
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '200':
+          description: The accepted transaction ID.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: The transaction was rejected as invalid.
+components:
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum: [mainnet, testnet]
+        default: mainnet
+  schemas:
+    Block:
+      type: object
+      description: An Aleo block.
+      properties:
+        block_hash:
+          type: string
+        previous_hash:
+          type: string
+        header:
+          type: object
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+    Transaction:
+      type: object
+      description: An Aleo transaction (execution or deployment).
+      properties:
+        type:
+          type: string
+          enum: [execute, deploy, fee]
+        id:
+          type: string
+        execution:
+          type: object
+        deployment:
+          type: object

@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Aleo Node REST API
+  version: 1.0.0
+extends: openapi/aleo-node-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-17'
+    x-api-type: blockchain-node
+    x-authentication: none
+    x-network-segments: [mainnet, testnet]
+- target: $.info
+  update:
+    x-provable-gateway: https://api.explorer.provable.com/v1
+    x-docs: https://docs.aleo.org/
+- target: $.tags
+  update:
+  - name: Chain
+    description: Latest chain state (height, hash, state root)

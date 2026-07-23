@@ -1,0 +1,58 @@
+generated: '2026-07-17'
+method: searched
+source: npm, PyPI, crates.io, github.com/ProvableHQ
+packages:
+- language: javascript
+  registry: npm
+  name: "@provablehq/sdk"
+  version: 0.11.3
+  url: https://www.npmjs.com/package/@provablehq/sdk
+  install: npm install @provablehq/sdk
+  description: JavaScript/TypeScript SDK for building on and interacting with the Aleo network.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@provablehq/wasm"
+  version: 0.11.3
+  url: https://www.npmjs.com/package/@provablehq/wasm
+  install: npm install @provablehq/wasm
+  description: snarkVM WASM binaries with JavaScript bindings for in-browser and Node.js proving.
+  official: true
+- language: javascript
+  registry: npm
+  name: create-leo-app
+  url: https://www.npmjs.com/package/create-leo-app
+  install: npm create leo-app@latest
+  description: Starter templates (React and others) for Aleo/Leo web applications.
+  official: true
+- language: python
+  registry: pypi
+  name: aleo
+  version: 0.1.0
+  url: https://pypi.org/project/aleo/
+  install: pip install aleo
+  description: Python SDK for zero-knowledge cryptography based on Aleo (github.com/ProvableHQ/python-sdk).
+  official: true
+- language: rust
+  registry: crates.io
+  name: snarkvm
+  version: 4.8.1
+  url: https://crates.io/crates/snarkvm
+  install: cargo add snarkvm
+  description: snarkVM — a zkVM for decentralized private computation.
+  official: true
+- language: rust
+  registry: crates.io
+  name: snarkos
+  version: 4.8.1
+  url: https://crates.io/crates/snarkos
+  install: cargo add snarkos
+  description: snarkOS — a decentralized operating system for zero-knowledge applications.
+  official: true
+- language: rust
+  registry: crates.io
+  name: leo-lang
+  url: https://crates.io/crates/leo-lang
+  install: cargo install leo-lang
+  description: The Leo programming language and CLI for zero-knowledge applications.
+  official: true

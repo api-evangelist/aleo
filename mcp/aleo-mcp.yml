@@ -1,0 +1,51 @@
+generated: '2026-07-17'
+method: derived
+status: candidate
+source: openapi/aleo-node-api-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for Aleo/Provable as of this
+  writing. This is a DERIVED candidate tool list mapping the public node REST API
+  operations to MCP tools, one per operationId.
+server:
+  name: aleo-node
+  transport: http
+tools:
+- name: get_latest_height
+  description: Get the latest block height on the network.
+  source_operation: openapi/aleo-node-api-openapi.yml#getLatestHeight
+- name: get_latest_hash
+  description: Get the latest block hash.
+  source_operation: openapi/aleo-node-api-openapi.yml#getLatestHash
+- name: get_latest_state_root
+  description: Get the latest ledger state root.
+  source_operation: openapi/aleo-node-api-openapi.yml#getLatestStateRoot
+- name: get_latest_block
+  description: Get the full latest block.
+  source_operation: openapi/aleo-node-api-openapi.yml#getLatestBlock
+- name: get_block
+  description: Get a block by height or hash.
+  source_operation: openapi/aleo-node-api-openapi.yml#getBlock
+- name: get_block_transactions
+  description: List transactions confirmed in a block.
+  source_operation: openapi/aleo-node-api-openapi.yml#getBlockTransactions
+- name: get_transaction
+  description: Get a transaction by ID.
+  source_operation: openapi/aleo-node-api-openapi.yml#getTransaction
+- name: get_program
+  description: Get the Aleo instructions for a deployed program.
+  source_operation: openapi/aleo-node-api-openapi.yml#getProgram
+- name: get_program_mappings
+  description: List a program's mapping names.
+  source_operation: openapi/aleo-node-api-openapi.yml#getProgramMappings
+- name: get_mapping_value
+  description: Read a value from a program mapping by key.
+  source_operation: openapi/aleo-node-api-openapi.yml#getMappingValue
+- name: get_latest_committee
+  description: Get the current validator committee.
+  source_operation: openapi/aleo-node-api-openapi.yml#getLatestCommittee
+- name: find_block_hash_by_transaction
+  description: Find the block hash that confirmed a transaction.
+  source_operation: openapi/aleo-node-api-openapi.yml#findBlockHashByTransaction
+- name: broadcast_transaction
+  description: Broadcast a signed transaction to the network.
+  source_operation: openapi/aleo-node-api-openapi.yml#broadcastTransaction

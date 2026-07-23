@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: Aleo Node REST Blocks Transactions API
+  description: The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.
+  version: v1
+  contact:
+    name: Provable / Aleo Developer Community
+    url: https://docs.aleo.org/
+  license:
+    name: Apache-2.0
+    url: https://github.com/ProvableHQ/snarkOS/blob/staging/LICENSE.md
+servers:
+- url: https://api.explorer.provable.com/v1
+  description: Provable public gateway (mainnet + testnet)
+tags:
+- name: Transactions
+  description: Transaction submission
+paths:
+  /{network}/transaction/broadcast:
+    post:
+      operationId: broadcastTransaction
+      tags:
+      - Transactions
+      summary: Broadcast a transaction
+      description: Submits a signed, serialized transaction to the network for inclusion. The request body is the JSON transaction object produced by snarkVM / the Provable SDK.
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '200':
+          description: The accepted transaction ID.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: The transaction was rejected as invalid.
+components:
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum:
+        - mainnet
+        - testnet
+        default: mainnet
+  schemas:
+    Transaction:
+      type: object
+      description: An Aleo transaction (execution or deployment).
+      properties:
+        type:
+          type: string
+          enum:
+          - execute
+          - deploy
+          - fee
+        id:
+          type: string
+        execution:
+          type: object
+        deployment:
+          type: object
+externalDocs:
+  description: Aleo developer documentation
+  url: https://docs.aleo.org/

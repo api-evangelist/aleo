@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.aleo.org/ + https://status.aleo.org/ + github.com/ProvableHQ
+versioning:
+  scheme: uri-path
+  current: v1
+  note: >-
+    The node REST API is served under /v1 with a network segment (mainnet |
+    testnet). Protocol/consensus versions advance via snarkOS/snarkVM releases
+    (currently v4.8.x) and ARC governance (github.com/ProvableHQ/ARCs).
+  docs: https://docs.aleo.org/
+status_page: https://status.aleo.org/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal HTTP API deprecation policy / RFC 8594 Sunset headers documented; protocol changes are governed through ARCs and network upgrades.
+sla:
+  url: null
+  note: Decentralized public network; no per-endpoint uptime SLA. status.aleo.org tracks mainnet status.
+deprecated_operations: []

@@ -1,0 +1,25 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/aleo-node-api-openapi.yml + https://docs.aleo.org/
+standards:
+- id: oauth2
+  conforms: false
+  evidence: The public node API is unauthenticated; no OAuth2 security schemes.
+- id: openapi-3.0
+  conforms: true
+  evidence: API captured as OpenAPI 3.0.3 (openapi/aleo-node-api-openapi.yml).
+- id: rest
+  conforms: true
+  evidence: Resource-oriented HTTP GET/POST endpoints over JSON.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Node errors are returned as plain-text/status codes, not application/problem+json.
+- id: json
+  conforms: true
+  evidence: All responses are application/json.
+- id: zk-snark
+  conforms: true
+  evidence: Transactions carry zero-knowledge (zk-SNARK) proofs verified by snarkVM.
+- id: apache-2.0
+  conforms: true
+  evidence: snarkOS/snarkVM/Leo are released under Apache-2.0.
