@@ -2,10 +2,8 @@ generated: '2026-07-17'
 method: derived
 status: candidate
 source: openapi/aleo-node-api-openapi.yml
-note: >-
-  No official hosted/remote MCP server was found for Aleo/Provable as of this
-  writing. This is a DERIVED candidate tool list mapping the public node REST API
-  operations to MCP tools, one per operationId.
+note: No official hosted/remote MCP server was found for Aleo/Provable as of this writing. This is a DERIVED
+  candidate tool list mapping the public node REST API operations to MCP tools, one per operationId.
 server:
   name: aleo-node
   transport: http
@@ -49,3 +47,9 @@ tools:
 - name: broadcast_transaction
   description: Broadcast a signed transaction to the network.
   source_operation: openapi/aleo-node-api-openapi.yml#broadcastTransaction
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census

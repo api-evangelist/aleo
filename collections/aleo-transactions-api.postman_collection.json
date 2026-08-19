@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "b29f13a9-ed91-45bc-8ff7-1dc8297ed21b",
+      "name": "Transactions",
+      "description": {
+        "content": "Transaction submission",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3908c597-7394-4a5a-8eb4-e9ba5d2d71ce",
+          "name": "Broadcast a transaction",
+          "request": {
+            "name": "Broadcast a transaction",
+            "description": {
+              "content": "Submits a signed, serialized transaction to the network for inclusion. The request body is the JSON transaction object produced by snarkVM / the Provable SDK.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "transaction",
+                "broadcast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"id\": \"<string>\",\n  \"execution\": \"<object>\",\n  \"deployment\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dcc1fc4e-8a2d-41d0-bf93-45cf5a708690",
+              "name": "The accepted transaction ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "transaction",
+                    "broadcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"id\": \"<string>\",\n  \"execution\": \"<object>\",\n  \"deployment\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19eac815-9066-4aa4-9732-4012aed2ed40",
+              "name": "The transaction was rejected as invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "transaction",
+                    "broadcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"id\": \"<string>\",\n  \"execution\": \"<object>\",\n  \"deployment\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.explorer.provable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a31ccc23-8d34-4624-b268-c9dff2f4fdb4",
+    "name": "Aleo Node REST Blocks Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.\n\nContact Support:\n Name: Provable / Aleo Developer Community",
+      "type": "text/plain"
+    }
+  }
+}

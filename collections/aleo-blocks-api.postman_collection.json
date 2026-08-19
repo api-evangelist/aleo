@@ -1,0 +1,591 @@
+{
+  "item": [
+    {
+      "id": "d186a087-ca66-4ef2-97cb-d7c3102a2b2e",
+      "name": "Blocks",
+      "description": {
+        "content": "Block and transaction queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c841f3c0-7ea4-4b81-accd-404e1dca4e63",
+          "name": "Get block by height or hash",
+          "request": {
+            "name": "Get block by height or hash",
+            "description": {
+              "content": "Returns the block at the given height (integer) or block hash (ab1...).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "block",
+                ":height"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "height",
+                  "description": "(Required) Block height (integer) or block hash."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29ba583a-2488-415f-8f25-b94d1d54fd76",
+              "name": "The requested block.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "block",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) Block height (integer) or block hash."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block_hash\": \"string\",\n  \"previous_hash\": \"string\",\n  \"header\": {},\n  \"transactions\": [\n    {\n      \"type\": \"fee\",\n      \"id\": \"string\",\n      \"execution\": {},\n      \"deployment\": {}\n    },\n    {\n      \"type\": \"deploy\",\n      \"id\": \"string\",\n      \"execution\": {},\n      \"deployment\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b0708c4-5a57-45c8-bda9-aec3801182f3",
+              "name": "Block not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "block",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) Block height (integer) or block hash."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f29646b-729e-40b0-8cdf-2e1de9124f29",
+          "name": "Get transactions in a block",
+          "request": {
+            "name": "Get transactions in a block",
+            "description": {
+              "content": "Returns the list of transactions confirmed in the given block.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "block",
+                ":height",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "height",
+                  "description": "(Required) Block height."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32179d55-d6be-4359-8404-5091eea19e2e",
+              "name": "The transactions in the block.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "block",
+                    ":height",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) Block height."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"fee\",\n    \"id\": \"string\",\n    \"execution\": {},\n    \"deployment\": {}\n  },\n  {\n    \"type\": \"deploy\",\n    \"id\": \"string\",\n    \"execution\": {},\n    \"deployment\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b62e9787-a6c5-422e-9ad3-f7aa75fb75ee",
+          "name": "Get transaction by ID",
+          "request": {
+            "name": "Get transaction by ID",
+            "description": {
+              "content": "Returns the transaction with the given transaction ID (at1...).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "transaction",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transaction ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "334917c9-7b4a-4b02-8030-df4c69843e9d",
+              "name": "The requested transaction.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Transaction ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"deploy\",\n  \"id\": \"string\",\n  \"execution\": {},\n  \"deployment\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "047299c8-635d-4845-8f51-421419145a85",
+              "name": "Transaction not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Transaction ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c31e0bd-21db-4570-95d1-802cf05a24f9",
+          "name": "Find the block hash containing a transaction",
+          "request": {
+            "name": "Find the block hash containing a transaction",
+            "description": {
+              "content": "Returns the hash of the block that confirmed the given transaction ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "find",
+                "blockHash",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45b51d99-3feb-4f89-95d2-9108fa47f356",
+              "name": "The block hash.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "find",
+                    "blockHash",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbe1386c-c99a-4f1e-9e4a-596403eb4042",
+              "name": "Transaction not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "find",
+                    "blockHash",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.explorer.provable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5ca937f6-32a0-4dc0-9274-3af7eb462799",
+    "name": "Aleo Node REST Blocks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.\n\nContact Support:\n Name: Provable / Aleo Developer Community",
+      "type": "text/plain"
+    }
+  }
+}

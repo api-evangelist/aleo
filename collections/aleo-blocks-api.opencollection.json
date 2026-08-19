@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aleo Node REST Blocks API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get block by height or hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/block/:height",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "height",
+                "value": "0",
+                "type": "path",
+                "description": "Block height (integer) or block hash."
+              }
+            ]
+          },
+          "docs": "Returns the block at the given height (integer) or block hash (ab1...)."
+        },
+        {
+          "info": {
+            "name": "Get transactions in a block",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/block/:height/transactions",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "height",
+                "value": "0",
+                "type": "path",
+                "description": "Block height."
+              }
+            ]
+          },
+          "docs": "Returns the list of transactions confirmed in the given block."
+        },
+        {
+          "info": {
+            "name": "Get transaction by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/transaction/:id",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction ID."
+              }
+            ]
+          },
+          "docs": "Returns the transaction with the given transaction ID (at1...)."
+        },
+        {
+          "info": {
+            "name": "Find the block hash containing a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/find/blockHash/:transactionId",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the hash of the block that confirmed the given transaction ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

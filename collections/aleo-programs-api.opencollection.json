@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aleo Node REST Blocks Programs API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Programs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get program source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/program/:programId",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "programId",
+                "value": "credits.aleo",
+                "type": "path",
+                "description": "Program ID, e.g. credits.aleo."
+              }
+            ]
+          },
+          "docs": "Returns the Aleo instructions (bytecode) for the deployed program with the given program ID, e.g. credits.aleo."
+        },
+        {
+          "info": {
+            "name": "List a program's mapping names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/program/:programId/mappings",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "programId",
+                "value": "credits.aleo",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the names of the mappings declared by the program."
+        },
+        {
+          "info": {
+            "name": "Get a mapping value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/program/:programId/mapping/:mappingName/:key",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              },
+              {
+                "name": "programId",
+                "value": "credits.aleo",
+                "type": "path"
+              },
+              {
+                "name": "mappingName",
+                "value": "account",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The mapping key (e.g. an Aleo address)."
+              }
+            ]
+          },
+          "docs": "Returns the value stored under the given key in the named mapping of the program (e.g. the account balance in credits.aleo/account)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

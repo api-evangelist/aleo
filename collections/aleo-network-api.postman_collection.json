@@ -1,0 +1,122 @@
+{
+  "item": [
+    {
+      "id": "c012d36f-8838-4ca8-b88e-815aab2f0f7b",
+      "name": "Network",
+      "description": {
+        "content": "Committee and consensus state",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63203904-020c-45cb-8fa7-94788db5dea4",
+          "name": "Get the latest validator committee",
+          "request": {
+            "name": "Get the latest validator committee",
+            "description": {
+              "content": "Returns the current committee of validators and their stake.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network",
+                "committee",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mainnet",
+                  "key": "network",
+                  "description": "(Required) The Aleo network to query."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fb29c5b-9c87-42ea-b7a1-31aad2be4685",
+              "name": "The current committee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network",
+                    "committee",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mainnet",
+                      "key": "network",
+                      "description": "(Required) The Aleo network to query."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.explorer.provable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae96efef-25b2-4fd9-aa2a-ef46ed3fc6a7",
+    "name": "Aleo Node REST Blocks Network API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.\n\nContact Support:\n Name: Provable / Aleo Developer Community",
+      "type": "text/plain"
+    }
+  }
+}

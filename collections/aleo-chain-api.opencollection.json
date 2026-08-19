@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aleo Node REST Blocks Chain API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chain",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get latest block height",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/latest/height",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              }
+            ]
+          },
+          "docs": "Returns the height of the latest block on the network."
+        },
+        {
+          "info": {
+            "name": "Get latest block hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/latest/hash",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              }
+            ]
+          },
+          "docs": "Returns the block hash of the latest block on the network."
+        },
+        {
+          "info": {
+            "name": "Get latest state root",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/latest/stateRoot",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              }
+            ]
+          },
+          "docs": "Returns the latest state root of the ledger."
+        },
+        {
+          "info": {
+            "name": "Get latest block",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.explorer.provable.com/v1/:network/latest/block",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              }
+            ]
+          },
+          "docs": "Returns the full latest block, including its transactions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

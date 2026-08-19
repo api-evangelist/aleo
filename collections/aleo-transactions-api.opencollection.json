@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aleo Node REST Blocks Transactions API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Broadcast a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.explorer.provable.com/v1/:network/transaction/broadcast",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "The Aleo network to query."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a signed, serialized transaction to the network for inclusion. The request body is the JSON transaction object produced by snarkVM / the Provable SDK."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
