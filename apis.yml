@@ -33,6 +33,16 @@ modified: '2026-07-17'
 tags:
 - Company
 - Blockchain
+- Zero Knowledge
+- Cryptography
+- Privacy
+- Web3
+- Developer Tools
+- Cryptocurrency
+- Smart Contracts
+tags_raw:
+- Company
+- Blockchain
 - Zero-Knowledge
 - Cryptography
 - Privacy
@@ -95,6 +105,8 @@ apis:
   humanURL: https://docs.aleo.org/
   baseURL: https://api.explorer.provable.com/v1
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
