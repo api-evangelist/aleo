@@ -1,16 +1,13 @@
 aid: aleo
 name: Aleo
-description: >-
-  Aleo is a privacy-first, zero-knowledge Layer-1 blockchain for building fully
-  private applications. Developers write smart contracts in Leo — a purpose-built
-  language for zero-knowledge applications — compile them with snarkVM, and run
-  them on the decentralized snarkOS network, keeping inputs, outputs, and program
-  state private using zk-SNARK proofs while still being publicly verifiable. The
-  ecosystem, developed by Provable (ProvableHQ), includes the Leo language and CLI,
-  the snarkVM zkVM and snarkOS operating system, JavaScript/TypeScript and Python
-  SDKs, a WASM runtime for in-browser proving, the Aleo Explorer, and a public node
-  REST API for reading on-chain state and broadcasting transactions across mainnet
-  and testnet. Aleo is a portfolio company of a16z.
+description: Aleo is a privacy-first, zero-knowledge Layer-1 blockchain for building fully private applications.
+  Developers write smart contracts in Leo — a purpose-built language for zero-knowledge applications —
+  compile them with snarkVM, and run them on the decentralized snarkOS network, keeping inputs, outputs,
+  and program state private using zk-SNARK proofs while still being publicly verifiable. The ecosystem,
+  developed by Provable (ProvableHQ), includes the Leo language and CLI, the snarkVM zkVM and snarkOS
+  operating system, JavaScript/TypeScript and Python SDKs, a WASM runtime for in-browser proving, the
+  Aleo Explorer, and a public node REST API for reading on-chain state and broadcasting transactions across
+  mainnet and testnet. Aleo is a portfolio company of a16z.
 url: https://raw.githubusercontent.com/api-evangelist/aleo/refs/heads/main/apis.yml
 deliveryModel:
   model: unknown
@@ -40,7 +37,7 @@ x-type: company
 x-source: a16z-portfolio
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-09-16'
 tags:
 - Company
 - Blockchain
@@ -130,6 +127,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://aleo.org
 - type: DomainSecurity
   url: security/aleo-domain-security.yml
 - type: AgenticAccess
@@ -166,7 +165,10 @@ common:
   url: cli/aleo-cli.yml
 - type: X-MCPServerCandidate
   url: mcp/aleo-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: AgentSkill
   url: skills/_index.yml
 - type: WellKnown
