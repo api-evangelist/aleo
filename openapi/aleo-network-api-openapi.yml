@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Aleo Node REST Blocks Network API
-  description: The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com. It provides read access to on-chain state — the latest block height/hash/state root, blocks and their transactions, deployed programs and their mappings, and the current validator committee — plus a broadcast endpoint for submitting signed transactions to the network. The API is unauthenticated and read-only for query endpoints. Endpoints were verified live against the mainnet gateway; the route surface follows the snarkOS node REST implementation.
+  title: Aleo Node REST Network API
+  description: The public REST API exposed by Aleo network nodes (snarkOS), served through Provable's public gateway at api.explorer.provable.com.
   version: v1
   contact:
     name: Provable / Aleo Developer Community
