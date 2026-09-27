@@ -115,6 +115,20 @@ paths:
           description: Transaction not found.
 components:
   schemas:
+    Block:
+      type: object
+      description: An Aleo block.
+      properties:
+        block_hash:
+          type: string
+        previous_hash:
+          type: string
+        header:
+          type: object
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
     Transaction:
       type: object
       description: An Aleo transaction (execution or deployment).
@@ -131,20 +145,6 @@ components:
           type: object
         deployment:
           type: object
-    Block:
-      type: object
-      description: An Aleo block.
-      properties:
-        block_hash:
-          type: string
-        previous_hash:
-          type: string
-        header:
-          type: object
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
   parameters:
     Network:
       name: network
