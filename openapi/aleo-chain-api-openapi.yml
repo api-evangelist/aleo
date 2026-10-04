@@ -82,7 +82,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/Block'
 components:
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum:
+        - mainnet
+        - testnet
+        default: mainnet
   schemas:
+    Block:
+      type: object
+      description: An Aleo block.
+      properties:
+        block_hash:
+          type: string
+        previous_hash:
+          type: string
+        header:
+          type: object
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
     Transaction:
       type: object
       description: An Aleo transaction (execution or deployment).
@@ -99,32 +125,6 @@ components:
           type: object
         deployment:
           type: object
-    Block:
-      type: object
-      description: An Aleo block.
-      properties:
-        block_hash:
-          type: string
-        previous_hash:
-          type: string
-        header:
-          type: object
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
-  parameters:
-    Network:
-      name: network
-      in: path
-      required: true
-      description: The Aleo network to query.
-      schema:
-        type: string
-        enum:
-        - mainnet
-        - testnet
-        default: mainnet
 externalDocs:
   description: Aleo developer documentation
   url: https://docs.aleo.org/
