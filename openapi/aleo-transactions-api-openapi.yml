@@ -41,18 +41,6 @@ paths:
         '400':
           description: The transaction was rejected as invalid.
 components:
-  parameters:
-    Network:
-      name: network
-      in: path
-      required: true
-      description: The Aleo network to query.
-      schema:
-        type: string
-        enum:
-        - mainnet
-        - testnet
-        default: mainnet
   schemas:
     Transaction:
       type: object
@@ -70,6 +58,18 @@ components:
           type: object
         deployment:
           type: object
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: The Aleo network to query.
+      schema:
+        type: string
+        enum:
+        - mainnet
+        - testnet
+        default: mainnet
 externalDocs:
   description: Aleo developer documentation
   url: https://docs.aleo.org/
