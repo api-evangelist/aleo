@@ -64,6 +64,126 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Aleo is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Aleo is a privacy-first, zero-knowledge Layer-1 blockchain for building fully private applications. Developers write smart contracts in Leo — a purpose-built language for zero-knowledge applications — compile them with snarkVM, and run them on the decentralized snarkOS network, keeping inputs, outputs, and program state private using zk-SNARK proofs while still being publicly verifiable. The ecosystem, developed by Provable (ProvableHQ), includes the Leo language and CLI, the snarkVM zkVM and snarkOS operating system, JavaScript/TypeScript and Python SDKs, a WASM runtime for in-browser proving, the Aleo Explorer, and a public node REST API for reading on-chain state and broadcasting transactions across mainnet and testnet. Aleo is a portfolio company of a16z.
 
-Source: portfolio company of [a16z](https://github.com/api-evangelist/a16z)
+**Areas:** Company · Blockchain · Zero Knowledge · Cryptography · Privacy · Web3 · Developer Tools · Cryptocurrency · Smart Contracts
+
+## Aleo on APIs.io
+
+Everything profiled for Aleo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aleo/](https://apis.io/providers/aleo/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Aleo Blocks API](https://apis.io/apis/aleo/aleo-blocks-api/) — Block and transaction queries
+- [Aleo Chain API](https://apis.io/apis/aleo/aleo-chain-api/) — Latest chain state
+- [Aleo Network API](https://apis.io/apis/aleo/aleo-network-api/) — Committee and consensus state
+- [Aleo Programs API](https://apis.io/apis/aleo/aleo-programs-api/) — Deployed program and mapping queries
+- [Aleo Transactions API](https://apis.io/apis/aleo/aleo-transactions-api/) — Transaction submission
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [aleo-node](https://apis.io/servers/aleo/aleo-node/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Aleo Agentic Access](https://apis.io/agentic-access/aleo/aleo-agentic-access/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Aleo Node REST Blocks API](https://apis.io/collections/aleo/open-aleo-blocks-api/)
+- [Aleo Node REST Blocks Chain API](https://apis.io/collections/aleo/open-aleo-chain-api/)
+- [Aleo Node REST Blocks Network API](https://apis.io/collections/aleo/open-aleo-network-api/)
+- [Aleo Node REST Blocks Programs API](https://apis.io/collections/aleo/open-aleo-programs-api/)
+- [Aleo Node REST Blocks Transactions API](https://apis.io/collections/aleo/open-aleo-transactions-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Aleo Node Api Overlay](https://apis.io/overlays/aleo/aleo-node-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aleo Authentication](https://apis.io/security/aleo/aleo-authentication/)
+- [Aleo Domain Security](https://apis.io/security/aleo/aleo-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aleo.org)
+- [Documentation](https://docs.aleo.org/)
+- [Getting started](https://docs.aleo.org/build/getting-started/)
+- [API reference](https://docs.aleo.org/build/sdk/overview/)
+- [Support](https://discord.gg/aleo)
+- [Blog](https://provable.com/blog)
+- [Privacy policy](https://provable.com/privacy)
+- [GitHub](https://github.com/ProvableHQ)
+- [Status](https://status.aleo.org/)
+
+## API Evangelist rating
+
+**Kin Score 41.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 45.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 76.8 |
+| Access clarity | 10.5 |
+
+**Agent readiness 22.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aleo/](https://apis.io/providers/aleo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Aleo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aleo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
